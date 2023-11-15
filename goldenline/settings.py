@@ -32,6 +32,9 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+# Se deconnecter apres 15 minutes
+SESSION_COOKIE_AGE = 60 * 60
+
 INSTALLED_APPS = [
     'registration',
     'django.contrib.admin',
