@@ -1,0 +1,120 @@
+{% extends "accueil.html" %}
+{% load i18n %}
+{% load static %}
+{% block title %}{% trans "Se connecter" %}{% endblock %}
+
+{% block css_files %}
+    <style>
+        #bg {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            min-width: 200%;
+            min-height: 200%;
+        }
+
+        #bg img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            min-width: 50%;
+        }
+
+        #content-container-login {
+            border-radius: 5px;
+            margin-top: 10%;
+        }
+
+        #content-container-login h1 {
+            font-family: monospace;
+            color: white;
+            font-size: 48px;
+        }
+
+        #form-container {
+            background-color: rgba(0, 0, 0, .5);
+            border-radius: 5px;
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+        @media (min-height: 900px) {
+            #content-container-login {
+                margin-top: 250px;
+            }
+        }
+
+        @media (min-width: 970px) {
+            #content-container-login form .form-group {
+                margin-right: -80px;
+                margin-left: 20px;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div id="content-container-login" class="container">
+        <div class="row">
+            <div id="bg">
+            <img src="/static/img/font_ecran.jpg"/>
+        </div>
+
+        <div id="form-container" class="col-md-offset-3 col-md-6">
+                <form class="form-horizontal" method="post"
+                      action="{% url 'login' %}" novalidate>
+                    <input type="hidden" name="next"
+                           value="{{ next|default:'/home/' }}"/> {% csrf_token %}
+                    <fieldset>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <h1>GoldenLine</h1>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_username"
+                                   class=" sr-only control-label">Identifiant</label>
+                            <div class="col-md-10">
+                                <input type="text" id="id_username" name="username"
+                                       class="form-control" placeholder="Identifiant"
+                                       required autofocus>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="id_password"
+                                   class=" sr-only control-label">Mot de passe</label>
+                            <div class="col-md-10">
+                                <input type="password" id="id_password"
+                                       name="password" class="form-control"
+                                       placeholder="Mot de passe" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class=" col-md-10">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="submit" value="Se connecter"
+                                               class="btn btn-primary btn-block"/>
+                                    </div>
+                                    <br class="visible-xs-block"/>
+                                </div>
+                            </div>
+                        </div>
+                        {% if form.errors %}
+                            <div class="form-group">
+                                <div class=" col-md-10">
+                                    <div class="alert alert-danger">
+                                        Identifiant ou mot de passe incorrecte
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
