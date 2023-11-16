@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import dj_database_url
+import django_heroku
 import os
 from pathlib import Path
 
@@ -129,3 +130,6 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Activer Django-Heroku.
+django_heroku.settings(locals())
