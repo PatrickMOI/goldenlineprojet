@@ -12,10 +12,6 @@ code {
     monospace;
 }
 
-#wrapper {
-  overflow-x: hidden;
-}
-
 #sidebar-wrapper {
   /* min-height: 100vh;  comment out because of switch to list-group */
   margin-left: -15rem;

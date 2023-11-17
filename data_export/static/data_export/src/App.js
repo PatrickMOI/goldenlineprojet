@@ -70,7 +70,7 @@ function App() {
           </div>
 
           {/* <!-- Page Content --> */}
-          <div id="page-content-wrapper" style={{ overflowX: "auto" }}>
+          <div id="page-content-wrapper">
             <div className="container-fluid">
               <main role="main" className=" ml-sm-auto">
                 <div
