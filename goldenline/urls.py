@@ -25,5 +25,5 @@ urlpatterns = [
     re_path(r'^accounts/', include('django.contrib.auth.urls')),
 
     re_path(r'^home/$', RedirectView.as_view(pattern_name='data_export_accueil')),
-    re_path(r'^$', RedirectView.as_view(pattern_name='data_export_accueil')),
+    re_path(r'^.*$', RedirectView.as_view(pattern_name='data_export_accueil')),
 ]
