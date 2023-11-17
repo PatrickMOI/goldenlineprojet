@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-yp8jbt21x#4^q&qi4h$kb6j_9ya72)$)wtuz0l%6(5_6bdth6t'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", False)
@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ['.onrender.com', 'localhost']
 
 # Application definition
 
-# Se deconnecter apres 15 minutes
+# Se deconnecter apres 60 minutes
 SESSION_COOKIE_AGE = 60 * 60
 
 INSTALLED_APPS = [
